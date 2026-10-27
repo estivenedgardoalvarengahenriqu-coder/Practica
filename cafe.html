@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Atención Jhimmi!</title>
+    <style>
+        body {
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            overflow: hidden;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #e94560;
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        #btnEscurridizo {
+            background-color: #0f3460;
+            color: white;
+            border: 2px solid #e94560;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            position: absolute;
+            transition: 0.1s ease;
+        }
+
+        #btnEscurridizo:hover {
+            background-color: #e94560;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¡Alerta Máxima!</h1>
+    <p>Jhimmi, haz clic en el botón de abajo para reclamar tu premio<br>(o acepta que debes unos tacos):</p>
+
+    <!-- Botón que se moverá -->
+    <button id="btnEscurridizo" onmouseover="moverBoton()" onclick="alert('¡Mentira! No hay premio, pero sí hay deuda de tacos, Jhimmi.')">¡Reclamar Premio!</button>
+
+    <script>
+        function moverBoton() {
+            const btn = document.getElementById('btnEscurridizo');
+            
+            // Obtener límites de la ventana
+            const maxX = window.innerWidth - btn.offsetWidth - 50;
+            const maxY = window.innerHeight - btn.offsetHeight - 50;
+
+            // Generar posiciones aleatorias
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            // Aplicar la nueva posición
+            btn.style.left = randomX + 'px';
+            btn.style.top = randomY + 'px';
+        }
+    </script>
+
+</body>
+</html>
